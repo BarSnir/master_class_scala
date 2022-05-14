@@ -11,7 +11,7 @@ object Functions extends App {
     // parameters less Functions
 
     def aParameterLess(): Int = 42
-    println(aParameterLess)
+    println(aParameterLess())
 
 
     def aRepeaterFunc(myString: String, n:Int): String = {

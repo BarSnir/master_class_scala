@@ -1,5 +1,9 @@
 package section3
 
+import math.Fractional.Implicits.infixFractionalOps
+import math.Integral.Implicits.infixIntegralOps
+import math.Numeric.Implicits.infixNumericOps
+
 object OopExercise extends App {
 
     trait MyPredicate[-T] {
@@ -27,7 +31,7 @@ object OopExercise extends App {
         def ++[B >: A](list: MyList[B]): MyList[B]
     }
 
-    object Empty extends MyList[Nothing] {
+    case object Empty extends MyList[Nothing] {
         def head: Nothing = throw new NoSuchElementException
         def tail: MyList[Nothing] = throw new NoSuchElementException
         def isEmpty: Boolean = true
@@ -39,14 +43,14 @@ object OopExercise extends App {
         def ++[B >: Nothing](list: MyList[B]): MyList[B] = list
     }
 
-    class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
+    case class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
         def head: A = h
         def tail: MyList[A] = t
         def isEmpty: Boolean = false
         def add[B >: A](element: B): MyList[B] = new Cons(element, this)
         def printElements: String = {
             if (t.isEmpty) "" + h
-            else h + " " + t.printElements
+            else h.toString + " " + t.printElements
         }
         def map[B](transformer: MyTransformer[A, B]): MyList[B] = {
             new Cons(transformer.transform(h), t.map(transformer))

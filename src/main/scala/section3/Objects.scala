@@ -1,5 +1,8 @@
 package section3
 
+import scala.language.postfixOps
+
+
 object Objects extends App {
     //  scala doesn't have class level static methods
     object Person {

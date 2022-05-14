@@ -1,5 +1,7 @@
 package section3
 
+import scala.language.postfixOps
+
 object MethodNotation extends App {
     class Person(val name:String, favoriteMovie:String, age: Integer = 0) {
         def likes(movie:String): Boolean = movie == favoriteMovie;

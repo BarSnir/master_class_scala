@@ -5,19 +5,19 @@ object OOPBasics extends App {
     println(person.age)
     println(person.greet("John"))
     // overloading
-    println(person.greet)
+    println(person.greet())
 
     val writerA: Writer = new Writer("John", "Doe", 76)
-    println(writerA.fullName)
+    println(writerA.fullName())
     val novelA: Novel = new Novel("Great Mind", 1998, writerA)
-    println(s"The award is for ${novelA.name}, by ${novelA.writtenBy}, first release in ${novelA.release} At age of ${novelA.authorAge}")
+    println(s"The award is for ${novelA.name}, by ${novelA.writtenBy()}, first release in ${novelA.release} At age of ${novelA.authorAge()}")
 
 
     val counter : Count = new Count(1)
     val counterA: Count = counter.incrementCount(50).incrementCount(50)
     val counterB: Count = counter.decrementCount(2)
-    println(counterA.currentCount)
-    println(counterB.currentCount)
+    println(counterA.currentCount())
+    println(counterB.currentCount())
 
     val testCounter: Count = new Count(1)
     println(testCounter.incrementCountAcc(10, 2, 0).count)
@@ -51,7 +51,7 @@ class Novel(val name: String, val release: Int, val  writer:Writer) {
     }
 
     def writtenBy(): String = {
-        this.writer.fullName
+        this.writer.fullName()
     }
 
     def copy(name: String, release: Int, writer: Writer): Novel = {

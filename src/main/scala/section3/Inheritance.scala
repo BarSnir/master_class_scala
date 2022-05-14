@@ -1,5 +1,7 @@
 package section3
 
+import scala.language.postfixOps
+
 object Inheritance extends App {
     sealed class Animal {
         val name = "None"
